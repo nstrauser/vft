@@ -1,34 +1,46 @@
 import 'package:flutter/material.dart';
 import 'package:vft/theme.dart';
+import 'package:vft/model/data_model.dart';
+import 'package:flutter/services.dart';
+import 'package:provider/provider.dart';
 
 class UserInputScale extends StatelessWidget {
-  UserInputScale(
-      {this.onChanged, this.validator, this.hintText, this.controller});
-  final Function onChanged;
+  UserInputScale({this.validator, this.controller, this.scaleKey});
   final Function validator;
-  final hintText;
+
   final controller;
+  final scaleKey;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 60.0,
-      height: 25.0,
-      child: TextFormField(
-        initialValue: '100',
-//        controller: controller,
-        onChanged: onChanged,
-        style: Theme.of(context).textTheme.display3,
-        decoration: InputDecoration(
-          filled: true,
-          fillColor: Colors.grey[700],
-          focusColor: kOrange,
-          contentPadding: EdgeInsets.only(left: 8.0),
-          labelStyle: TextStyle(),
-          hintText: "$hintText",
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(3.0)),
+    return Consumer<DataModel>(builder: (context, dataModel, child) {
+      return Container(
+        width: 60.0,
+        height: 25.0,
+        child: TextFormField(
+          inputFormatters: <TextInputFormatter>[
+        WhitelistingTextInputFormatter(RegExp(r'^[1-9][0-9]?$|^100$')),
+      ],
+          controller: dataModel.scaleInputValue,
+          onChanged: (newValue) {
+            dataModel.updateScale(newValue);
+          },
+          style: Theme.of(context).textTheme.display3,
+          decoration: InputDecoration(
+            contentPadding: EdgeInsets.only(left: 8.0),
+            labelStyle: TextStyle(),
+            hintText: "100%",
+            filled: true,
+            fillColor: Colors.grey[700],
+            focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: kOrange, width: 2.0),
+                borderRadius: BorderRadius.circular(3.0)),
+            border:
+                OutlineInputBorder(borderRadius: BorderRadius.circular(3.0)),
+          ),
         ),
-      ),
-    );
+      );
+    });
   }
 }
+

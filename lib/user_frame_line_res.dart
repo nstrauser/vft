@@ -16,8 +16,8 @@ class UserFrameReso extends StatelessWidget {
           children: <Widget>[
             Container(
 
-                padding: EdgeInsets.only(top: 20.0),
-                child: OrangeTextFields(rowTitle: "Frame Line Resolution")),
+                padding: EdgeInsets.only(top: 8.0),
+                child: OrangeTextFields(rowTitle: "Frame Line\nResolution")),
             WidthHeight(
               borderColor: Colors.grey,
               widthHeight: 'Width',

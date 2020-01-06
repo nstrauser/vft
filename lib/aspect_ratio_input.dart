@@ -19,12 +19,12 @@ class UserRatio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<DataModel>(builder: (context, dataModel, child) {
       return Container(
-        margin: EdgeInsets.all(10.0),
+        margin: EdgeInsets.only(top: 10.0, bottom: 10.0, right: 10.0),
         child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
             crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
-              OrangeTextFields(rowTitle: "User Aspect Ratio"),
+              OrangeTextFields(rowTitle: "User\n  Aspect Ratio"),
               UserInputRatio(
                 controller: controllerWidth,
                 hintText: '0',
@@ -32,7 +32,7 @@ class UserRatio extends StatelessWidget {
               ),
               Container(
                 margin: EdgeInsets.symmetric(horizontal: 5.0),
-                child: Text(':', style: Theme.of(context).textTheme.display4),
+                child: Text(':', style: Theme.of(context).textTheme.display1),
               ),
               UserInputRatio(
                 controller: controllerHeight,
@@ -44,24 +44,3 @@ class UserRatio extends StatelessWidget {
     });
   }
 }
-
-//typedef String Validator(String m);
-//
-//first(List<Validator> validators) => (Object o) => validators
-//    .fold<String>(null, (String m, Validator v) => m ?? v(o));
-//
-//required(String m) => (Object o) => o == null ? m : null;
-//
-//equals(Object other, String m) => (Object o) => o != other ? m : null;
-//
-//notEquals(Object other, String m) => (Object o) => o == other ? m : null;
-//
-//minLength(String m, int l) => (String o) => o.length < l ? m : null;
-//
-//maxLength(String m, int l) => (String o) => o.length > l ? m : null;
-//
-//length(String m, int l) => (String o) => o.length > l ? m : null;
-//
-//isIn<T>(String m, List<T> l) => (T o) => !l.contains(o) ? m : null;
-//
-//isNotIn<T>(String m, List<T> l) => (T o) => l.contains(o) ? m : null;

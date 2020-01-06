@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       create: (context) => DataModel(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: "Data Calculator",
+        title: ":: VFT ::",
         theme: basicTheme(),
         home: Vft(),
       ),

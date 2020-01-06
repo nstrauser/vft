@@ -28,8 +28,7 @@ class UserFrameLine extends StatelessWidget {
 
                   Container(
                       margin: EdgeInsets.only(left: 5.0),
-                      padding: EdgeInsets.only(top: 10.0),
-                      child: OrangeTextFields(rowTitle: "User Frame Line")),
+                      child: OrangeTextFields(rowTitle: "User\nFrame Line")),
                 ],
               ),
             ),

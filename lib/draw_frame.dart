@@ -15,19 +15,21 @@ class DrawFrames extends StatelessWidget {
   final width;
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.centerLeft,
-      child: AspectRatio(
-        aspectRatio: aspectRatio,
-        child: Stack(children: <Widget>[
-          Container(color: Colors.grey[700]),
-          FrameLine(
-            aspectRatioFrame: aspectRatioFrame,
-            scale: scale,
-            color: color,
-            width: width,
-          ),
-        ]),
+    return SizedBox(width: 630, height: 420,
+      child: Align(
+        alignment: Alignment.center,
+        child: AspectRatio(
+          aspectRatio: aspectRatio,
+          child: Stack(children: <Widget>[
+            Container(color: Colors.grey[700]),
+            FrameLine(
+              aspectRatioFrame: aspectRatioFrame,
+              scale: scale,
+              color: color,
+              width: width,
+            ),
+          ]),
+        ),
       ),
     );
   }
@@ -50,7 +52,6 @@ class FrameLine extends StatelessWidget {
           child: Container(
               decoration: BoxDecoration(
             border: Border.all(color: color, width: width),
-            //child: Text("My Awesome Border"),
           )),
         ),
       ),

@@ -13,6 +13,9 @@ dependencies:
   cupertino_icons: ^0.1.2
   google_fonts: ^0.2.0
   provider: ^4.0.0
+  firebase_core: ^0.4.3+1
+  cloud_firestore: ^0.13.0+1
+
 
 dev_dependencies:
   flutter_test:
@@ -24,7 +27,6 @@ flutter:
 
   assets:
     - images/vft_logo.png
-    - images/spacer.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

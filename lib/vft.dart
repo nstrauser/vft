@@ -17,18 +17,16 @@ class Vft extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<DataModel>(builder: (context, dataModel, child) {
       return Scaffold(
-          appBar: AppBar(
-            title: AppTitle(),
-            backgroundColor: Colors.black87,
-            elevation: 8.0,
-          ),
           body: SingleChildScrollView(
-            child: Container(
-              padding: EdgeInsets.all(10.0),
+        child: Column(
+          children: <Widget>[
+            AppTitle(),
+            Container(
+              margin: EdgeInsets.all(10.0),
               child: Row(children: <Widget>[
                 Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     CameraSensor(
                         value: dataModel.selectedSensor,
@@ -51,20 +49,9 @@ class Vft extends StatelessWidget {
                         onChanged: (newValue) {
                           dataModel.updateLensFactor(newValue);
                         }),
-                    ScaleFrame(
-//                        controller: dataModel.scaleInputValue,
-//                        validator: (value) {
-//                          if (double.parse(value) > 0 &&
-//                              double.parse(value) < 101) {
-//                            value = value;
-//                          } else {
-//                            value = "100";
-//                          }
-//                        },
-                        onChanged: (newValue) {
-                          dataModel.updateScale(newValue);
-                        }),
+                    ScaleFrame(),
                     MySpacer(),
+//                    Reset(onPressed: dataModel.resetToDefault),
                     SensorReso(
                       sensorWidth: "${dataModel.sensorPxWidth}",
                       sensorHeight: "${dataModel.sensorPxHeight}",
@@ -79,20 +66,21 @@ class Vft extends StatelessWidget {
                       userFrameV: "${dataModel.userFrameVertical}",
                     ),
                     MyComment(),
+                    SizedBox(height: 20.0,),
                   ],
                 ),
-                Expanded(
-                  child: DrawFrames(
-                    aspectRatio: dataModel.sensorRatio,
-                    aspectRatioFrame: dataModel.userRatioInputExists(),
-                    scale: dataModel.drawScaleFrame(),
-                    color: dataModel.frameLineShowHide(),
-                    width: dataModel.frameBorderWidth(),
-                  ),
+                DrawFrames(
+                  aspectRatio: dataModel.sensorRatio,
+                  aspectRatioFrame: dataModel.userRatioInputExists(),
+                  scale: dataModel.drawScaleFrame(),
+                  color: dataModel.frameLineShowHide(),
+                  width: dataModel.frameBorderWidth(),
                 ),
               ]),
             ),
-          ));
+          ],
+        ),
+      ));
     });
   }
 }
@@ -102,9 +90,9 @@ class MyComment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.only(top: 10.0, right: 10.0),
+        margin: EdgeInsets.only(bottom: 15.0, right: 10.0),
         child: Text(
-          "* Use these horizontal vertical values\nto create a custom user frame line.",
+          "* Values you set on the camera.",
           style: Theme.of(context).textTheme.display2,
         ));
   }

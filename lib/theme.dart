@@ -6,13 +6,29 @@ const kLightBlue = Color(0xff85a2a6);
 const kBlack = Color(0xff1A1F61);
 const kBackground = Colors.black87;
 
+//ThemeData buildDarkTheme() {
+//  final ThemeData base = ThemeData();
+//  return base.copyWith(
+//    primaryColor: kBlack,
+//    accentColor: kOrange,
+//    hintColor: kOrange,
+//
+//    inputDecorationTheme: InputDecorationTheme(
+//      border: OutlineInputBorder(),
+//      labelStyle: TextStyle(
+//          color: kOrange,
+//      ),
+//    ),
+//  );
+//}
+
 ThemeData basicTheme() {
   TextTheme _basicTextTheme(TextTheme base) {
     return base.copyWith(
       headline: base.headline.copyWith(
         // orange
         fontFamily: 'Roboto',
-        fontSize: 24.0,
+        fontSize: 22.0,
         color: Color(0xfff15a24),
       ),
       title: base.title.copyWith(
@@ -44,6 +60,13 @@ ThemeData basicTheme() {
         fontSize: 20,
         color: Color(0xffd9ceb0),
       ),
+      display1: base.display1.copyWith(
+        // light blue
+        fontFamily: 'Roboto',
+        fontSize: 24.0,
+        fontWeight: FontWeight.w400,
+        color: kLightBlue,
+      ),
       display2: base.display2.copyWith(
         // Off White
         fontFamily: 'Roboto',
@@ -60,7 +83,7 @@ ThemeData basicTheme() {
       display4: base.display4.copyWith(
         // light blue
         fontFamily: 'Roboto',
-        fontSize: 24.0,
+        fontSize: 22.0,
         color: Color(0xff85a2a6),
       ),
     );
@@ -77,7 +100,6 @@ class OrangeTextFields extends StatelessWidget {
   OrangeTextFields({this.rowTitle});
 
   final rowTitle;
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -96,7 +118,3 @@ class OrangeTextFields extends StatelessWidget {
     );
   }
 }
-
-//
-//
-

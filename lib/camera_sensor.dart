@@ -11,13 +11,13 @@ class CameraSensor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      textBaseline: TextBaseline.alphabetic,
-      mainAxisAlignment: MainAxisAlignment.end,
+
+
+
       children: <Widget>[
         Align(
           alignment: Alignment.bottomRight,
-          child: OrangeTextFields(rowTitle: "Camera Sensor"),
+          child: OrangeTextFields(rowTitle: "Camera\nSensor"),
         ),
         MyDropDown(
           value: value,

@@ -17,13 +17,11 @@ class SensorReso extends StatelessWidget {
         return Container(
           child: Row(
             mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: <Widget>[
-                  OrangeTextFields(rowTitle: "Sensor Resolution"),
-                ],
-              ),
+              Container(
+                  padding: EdgeInsets.only(top: 10.0),
+                  child: OrangeTextFields(rowTitle: "Sensor\nResolution")),
               WidthHeight(
                 borderColor: Colors.grey,
                 widthHeight: 'Width',

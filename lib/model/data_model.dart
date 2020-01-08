@@ -52,8 +52,8 @@ class DataModel extends ChangeNotifier {
   num _userFrameMaxHoriz = 479;
   num _userFrameMaxVert = 269;
 
-  num get _newUserFrameHoriz => (_userFrameMaxVert * (_userFrameMaxHoriz / sensorRatioCalc) * (userRatio / _userFrameMaxVert)) * (double.parse(scaleInputValue.text) / 100);
-  num get _newUserFrameVert => (_userFrameMaxHoriz / (userRatio / sensorRatioCalc) * (_userFrameMaxHoriz / _userFrameMaxVert)) * (double.parse(scaleInputValue.text) / 100);
+  num get _newUserFrameHoriz => (_userFrameMaxVert * (_userFrameMaxHoriz / sensorRatioCalc * userRatio / _userFrameMaxVert)) * (double.parse(scaleInputValue.text) / 100);
+  num get _newUserFrameVert => (_userFrameMaxHoriz / (userRatio / sensorRatioCalc * _userFrameMaxHoriz / _userFrameMaxVert)) * (double.parse(scaleInputValue.text) / 100);
 
   num get _newUserPxWidth => (sensorPxWidth * _newUserFrameHoriz / _userFrameMaxHoriz).round();
   num get _newUserPxHeight => (sensorPxHeight * _newUserFrameVert / _userFrameMaxVert).round();
@@ -64,6 +64,7 @@ class DataModel extends ChangeNotifier {
 
   //   CALCULATE USER FRAME LINE & USER FRAME LINE PIXEL RESOLUTION   //
   dynamic calcUserFrameHV() {
+    //TODO: FIX FORMULA
     if (userRatioWidth.text.isEmpty || userRatioHeight.text.isEmpty) {
       showHideUserFrame = false;
       userFrameLineBorder();
@@ -74,13 +75,13 @@ class DataModel extends ChangeNotifier {
       }
 
       if (sensorRatioCalc < userRatio) {
-        print('sensor ratio calc is less $sensorRatioCalc');
-        userFramePxWidth = (sensorPxWidth * (double.parse(scaleInputValue.text) / 100)).round();
-        userFramePxHeight = _newUserPxHeight.round();
-        notifyListeners();
-        userFrameHorizontal = (_userFrameMaxHoriz * (double.parse(scaleInputValue.text) / 100)).round();
-        userFrameVertical = _newUserFrameVert.round();
-        notifyListeners();
+          print('sensor ratio calc is less $sensorRatioCalc');
+          userFramePxWidth = (sensorPxWidth * (double.parse(scaleInputValue.text) / 100)).round();
+          userFramePxHeight = _newUserPxHeight.round();
+          notifyListeners();
+          userFrameHorizontal = (_userFrameMaxHoriz * (double.parse(scaleInputValue.text) / 100)).round();
+          userFrameVertical = _newUserFrameVert.round();
+          notifyListeners();
 
       } else if (sensorRatioCalc > userRatio) {
         userFramePxWidth = _newUserPxWidth.round();

@@ -15,7 +15,7 @@ class DrawFrames extends StatelessWidget {
   final width;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(width: 630, height: 420,
+    return SizedBox(width: 600, height: 400,
       child: Align(
         alignment: Alignment.center,
         child: AspectRatio(
@@ -45,14 +45,17 @@ class FrameLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: AspectRatio(
-        aspectRatio: aspectRatioFrame,
-        child: Transform.scale(
-          scale: scale,
-          child: Container(
-              decoration: BoxDecoration(
-            border: Border.all(color: color, width: width),
-          )),
+      child: AnimatedContainer(
+        duration: Duration(seconds: 1),
+        child: AspectRatio(
+          aspectRatio: aspectRatioFrame,
+          child: Transform.scale(
+            scale: scale,
+            child: Container(
+                decoration: BoxDecoration(
+              border: Border.all(color: color, width: width),
+            )),
+          ),
         ),
       ),
     );

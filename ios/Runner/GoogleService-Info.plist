@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:916425627481:ios:65524a2dbe3abf0ea69e48</string>
+	<string>1:916425627481:ios:6f58a02b0194c66fa69e48</string>
 	<key>DATABASE_URL</key>
 	<string>https://veniceframetool.firebaseio.com</string>
 </dict>

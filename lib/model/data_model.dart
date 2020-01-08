@@ -64,7 +64,6 @@ class DataModel extends ChangeNotifier {
 
   //   CALCULATE USER FRAME LINE & USER FRAME LINE PIXEL RESOLUTION   //
   dynamic calcUserFrameHV() {
-    //TODO: FIX FORMULA
     if (userRatioWidth.text.isEmpty || userRatioHeight.text.isEmpty) {
       showHideUserFrame = false;
       userFrameLineBorder();

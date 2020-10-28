@@ -1,7 +1,6 @@
 # vft
 
-A new Flutter project.
-
+A frame line calculator for the Sony Venice.  Calculator will give you the values to enter on the camera.
 ## Getting Started
 
 This project is a starting point for a Flutter application.

@@ -1,6 +1,10 @@
 # vft
 
 A frame line calculator for the Sony Venice.  Calculator will give you the values to enter on the camera.
+
+## License & copyright
+© Nick Strauser 2020
+Licensed under the [MIT license](LICENSE).
 ## Getting Started
 
 This project is a starting point for a Flutter application.
